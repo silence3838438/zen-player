@@ -1,59 +1,66 @@
 {
-  "name": "zen-player",
-  "version": "1.0.1",
-  "description": "沉浸式音视频播放器插件 - 支持分类视频、自定义控制、全屏播放等功能",
-  "main": "src/index.js",
-  "module": "src/index.js",
-  "types": "types/index.d.ts",
+  "id": "zen-player",
+  "displayName": "沉浸式音视频播放器 Zen Player",
+  "version": "1.0.2",
+  "description": "一款功能强大的沉浸式音视频播放器插件，支持视频分类展示、自定义控制、全屏播放、响应式设计，完美适配PC/平板/手机",
   "keywords": [
-    "video-player",
-    "media-player",
-    "immersive",
-    "vue3",
     "video",
     "audio",
     "player",
-    "分类视频",
-    "视频播放器",
-    "音视频播放器"
+    "media",
+    "gallery",
+    "immersive",
+    "vue3",
+    "音视频",
+    "播放器",
+    "媒体画廊",
+    "视频分类",
+    "全屏播放"
   ],
-  "author": "Your Name",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yourusername/zen-player"
+  "repository": "https://github.com/silence3838438/zen-player",
+  "engines": {
+    "HBuilderX": "^3.0.0"
   },
-  "bugs": {
-    "url": "https://github.com/yourusername/zen-player/issues"
-  },
-  "homepage": "https://github.com/yourusername/zen-player#readme",
-  "peerDependencies": {
-    "vue": "^3.0.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.0.0",
-    "vue": "^3.3.0"
-  },
-  "files": [
-    "src",
-    "types",
-    "README.md",
-    "LICENSE"
-  ],
-  "exports": {
-    ".": {
-      "import": "./src/index.js",
-      "require": "./src/index.js",
-      "types": "./types/index.d.ts"
+  "dcloudext": {
+    "type": "component-vue",
+    "sale": {
+      "regular": {
+        "price": "0.00"
+      },
+      "sourcecode": {
+        "price": "0.00"
+      }
     },
-    "./VideoPlayer": {
-      "import": "./src/components/VideoPlayer.vue",
-      "types": "./types/components/VideoPlayer.d.ts"
+    "contact": {
+      "qq": ""
     },
-    "./MediaGallery": {
-      "import": "./src/components/MediaGallery.vue",
-      "types": "./types/components/MediaGallery.d.ts"
+    "declaration": {
+      "ads": "无",
+      "data": "无",
+      "permissions": "无"
+    },
+    "npmurl": "https://www.npmjs.com/package/zen-player",
+    "readme": "https://github.com/silence3838438/zen-player#readme",
+    "homepage": "https://github.com/silence3838438/zen-player"
+  },
+  "uni_modules": {
+    "dependencies": [],
+    "encrypt": [],
+    "platforms": {
+      "cloud": {
+        "tcb": "y",
+        "aliyun": "y"
+      },
+      "client": {
+        "Vue": {
+          "vue2": "n",
+          "vue3": "y"
+        }
+      }
     }
-  }
+  },
+  "main": "src/index.js",
+  "types": "types/index.d.ts",
+  "author": "",
+  "license": "MIT"
 }
-
