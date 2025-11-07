@@ -37,9 +37,44 @@ npm install zen-player
 
 ## 快速开始
 
-### 基础用法
+### 方式一：easycom 自动导入（推荐）
 
-在 Vue 3 项目中使用：
+插件已配置 easycom 规范，无需手动导入，直接使用即可：
+
+```vue
+<template>
+  <div class="container">
+    <!-- 视频播放器 -->
+    <zen-video-player
+      :video-src="videoSrc"
+      :video-title="videoTitle"
+      :poster="poster"
+      @play="handlePlay"
+      @pause="handlePause"
+    />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const videoSrc = ref('https://example.com/video.mp4')
+const videoTitle = ref('示例视频')
+const poster = ref('https://example.com/poster.jpg')
+
+const handlePlay = () => {
+  console.log('视频开始播放')
+}
+
+const handlePause = () => {
+  console.log('视频暂停')
+}
+</script>
+```
+
+### 方式二：手动导入
+
+如果需要手动导入，可以使用以下方式：
 
 ```vue
 <template>
@@ -74,6 +109,27 @@ const handlePause = () => {
 ```
 
 ### 媒体画廊用法
+
+#### easycom 方式（推荐）
+
+```vue
+<template>
+  <div class="gallery-container">
+    <zen-media-gallery
+      :categories="categories"
+      :videos="videos"
+      header-title="视频库"
+      header-subtitle="Video Gallery"
+      @video-select="handleVideoSelect"
+    />
+  </div>
+</template>
+
+<script setup>
+import { reactive } from 'vue'
+```
+
+#### 手动导入方式
 
 ```vue
 <template>
@@ -226,9 +282,11 @@ const handleVideoSelect = (video) => {
 ## 更新日志
 
 ### 1.0.2 (2025-11-07)
-- 优化插件目录结构
-- 更新文档格式符合 DCloud 规范
-- 添加更多使用示例
+- ✅ 符合 DCloud easycom 规范，支持自动导入
+- ✅ 添加 `components/zen-player` 目录结构
+- ✅ 优化插件目录结构
+- ✅ 更新文档格式符合 DCloud 规范
+- ✅ 添加 easycom 使用示例
 
 ### 1.0.1 (2025-11-06)
 - 修复已知问题
