@@ -31,6 +31,22 @@
         "price": "0.00"
       }
     },
+    "easycom": {
+      "components": [
+        {
+          "componentName": "zen-player",
+          "componentPath": "components/zen-player/zen-player"
+        },
+        {
+          "componentName": "zen-video-player",
+          "componentPath": "components/zen-player/VideoPlayer"
+        },
+        {
+          "componentName": "zen-media-gallery",
+          "componentPath": "components/zen-player/MediaGallery"
+        }
+      ]
+    },
     "contact": {
       "qq": ""
     },

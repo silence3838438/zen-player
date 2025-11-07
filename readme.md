@@ -27,13 +27,13 @@
 3. 搜索"zen-player"并导入
 
 ### 方式二：通过 npm 安装
-\`\`\`bash
+```bash
 npm install zen-player
-\`\`\`
+```
 
 ### 方式三：手动导入
 1. 下载插件
-2. 将 \`zen-player\` 文件夹复制到项目的 \`uni_modules\` 目录下
+2. 将 `zen-player` 文件夹复制到项目的 `uni_modules` 目录下
 
 ## 快速开始
 
@@ -41,7 +41,7 @@ npm install zen-player
 
 在 Vue 3 项目中使用：
 
-\`\`\`vue
+```vue
 <template>
   <div class="container">
     <!-- 视频播放器 -->
@@ -71,11 +71,11 @@ const handlePause = () => {
   console.log('视频暂停')
 }
 </script>
-\`\`\`
+```
 
 ### 媒体画廊用法
 
-\`\`\`vue
+```vue
 <template>
   <div class="gallery-container">
     <ImmersiveMediaGallery
@@ -118,7 +118,7 @@ const handleVideoSelect = (video) => {
   console.log('选中视频:', video)
 }
 </script>
-\`\`\`
+```
 
 ## API 文档
 
@@ -133,6 +133,12 @@ const handleVideoSelect = (video) => {
 | poster | String | - | 视频封面 |
 | seek-step | Number | 10 | 快进/快退步长（秒） |
 | autoplay | Boolean | false | 是否自动播放 |
+| play-icon | String | - | 播放按钮图标 |
+| pause-icon | String | - | 暂停按钮图标 |
+| full-screen-icon | String | - | 全屏按钮图标 |
+| small-screen-icon | String | - | 退出全屏按钮图标 |
+| front-icon | String | - | 快进按钮图标 |
+| back-icon | String | - | 快退按钮图标 |
 
 #### Events
 
@@ -142,6 +148,13 @@ const handleVideoSelect = (video) => {
 | pause | 视频暂停时触发 | - |
 | videoEnded | 视频播放结束时触发 | - |
 | timeUpdate | 播放进度更新时触发 | currentTime: 当前播放时间(秒) |
+
+#### Methods
+
+| 方法名 | 说明 | 参数 |
+| --- | --- | --- |
+| play | 播放视频 | - |
+| pause | 暂停视频 | - |
 
 ### MediaGallery 组件
 
@@ -155,6 +168,9 @@ const handleVideoSelect = (video) => {
 | header-title | String | '' | 页面主标题 |
 | header-subtitle | String | '' | 页面副标题 |
 | items-per-page | Number | 9 | 每页显示数量 |
+| show-q-r-code | Boolean | false | 是否显示二维码 |
+| qr-code-image | String | '' | 二维码图片地址 |
+| video-player-selector | String | '' | 视频播放器容器选择器 |
 
 #### Events
 
@@ -163,6 +179,49 @@ const handleVideoSelect = (video) => {
 | category-change | 分类切换时触发 | { index, category, videos, defaultVideo } |
 | video-select | 选中视频时触发 | video: 视频对象, autoPlay: 是否自动播放 |
 | page-change | 翻页时触发 | page: 页码 |
+
+## 数据格式说明
+
+### Category 分类对象
+
+```javascript
+{
+  id: 1,                    // 分类ID
+  name: '精选视频',          // 分类名称（中文）
+  nameEn: 'Featured',       // 分类名称（英文）
+  image: 'xxx.jpg',         // 分类封面图
+  description: '描述文字'    // 分类描述
+}
+```
+
+### Video 视频对象
+
+```javascript
+{
+  id: 1,                    // 视频ID
+  title: '示例视频',         // 视频标题（中文）
+  titleEn: 'Sample',        // 视频标题（英文）
+  cover: 'xxx.jpg',         // 视频封面
+  src: 'xxx.mp4',          // 视频地址
+  category: '精选视频',      // 所属分类（中文）
+  categoryEn: 'Featured'    // 所属分类（英文）
+}
+```
+
+## 常见问题
+
+### 1. 视频无法播放？
+- 检查视频地址是否正确
+- 确认视频格式是否支持（推荐 MP4 格式）
+- 检查网络连接是否正常
+
+### 2. 全屏功能不生效？
+- iOS 需要在 video 标签上添加 `webkit-playsinline` 属性
+- Android 需要检查是否有屏幕旋转权限
+
+### 3. 如何自定义样式？
+- 组件支持通过 CSS 变量自定义样式
+- 可以通过 scoped 样式覆盖默认样式
 
 ## 更新日志
 
@@ -177,6 +236,8 @@ const handleVideoSelect = (video) => {
 
 ### 1.0.0 (2025-11-05)
 - 首次发布
+- 支持基础视频播放功能
+- 支持媒体画廊展示
 
 ## 技术支持
 
