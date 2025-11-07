@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沉浸式音视频播放器 - 基础示例</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(180deg, #f0f8ec 0%, #fefefe 50%, #f5f9f7 100%);
+      min-height: 100vh;
+    }
+    #app {
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>沉浸式音视频播放器 - 基础示例</h1>
+    <immersive-video-player
+      video-src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      video-title="大兔子邦尼 - 经典动画短片"
+      poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+      :seek-step="10"
+      @play="onPlay"
+      @pause="onPause"
+      @videoEnded="onVideoEnded"
+    ></immersive-video-player>
+  </div>
+
+  <!-- 这里需要替换为实际的插件 CDN 链接或本地文件 -->
+  <script type="module">
+    const { createApp } = Vue;
+    // import ImmersiveMediaPlayer from './path-to-plugin'
+
+    // 临时创建一个简单的播放器组件作为演示
+    const VideoPlayer = {
+      name: 'ImmersiveVideoPlayer',
+      template: `
+        <div class="video-player-demo">
+          <p>这是一个演示页面</p>
+          <p>实际使用时，请从 npm 安装插件：npm install zen-player</p>
+          <p>或使用 CDN：https://unpkg.com/zen-player</p>
+        </div>
+      `
+    }
+
+    createApp({
+      components: {
+        'immersive-video-player': VideoPlayer
+      },
+      methods: {
+        onPlay() {
+          console.log('视频开始播放');
+        },
+        onPause() {
+          console.log('视频暂停');
+        },
+        onVideoEnded() {
+          console.log('视频播放结束');
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
+
+
